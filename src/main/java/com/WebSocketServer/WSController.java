@@ -8,21 +8,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class WSController {
 
-//    @MessageMapping("/vital")
-//    @SendTo("/topic/messages")
-//    public void receive(@RequestBody String vitalStatsDto) throws Exception {
-//        System.out.println(vitalStatsDto);
-//    }
-
     @MessageMapping("/vital")
     @SendTo("/topic/messages")
-    public void receive(@RequestBody VitalStatsOutputDto vitalStatsDto) throws Exception {
-
-        System.out.println(vitalStatsDto.getHeartRate()
-                + ", " + vitalStatsDto.getRespiratoryRate()
-                + ", " + vitalStatsDto.getPosture()
-                + ", " + vitalStatsDto.getTemperature());
-
-        vitalStatsDto.getVitalsConstants().entrySet().forEach(System.out::println);
+    public void receive(@RequestBody String message) throws Exception {
+        System.out.println(message + "\n");
     }
 }
