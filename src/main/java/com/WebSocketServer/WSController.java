@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class WSController {
 
-    @MessageMapping("/vital")
+    @MessageMapping("/chat")
     @SendTo("/topic/messages")
     public void receive(@RequestBody String message) throws Exception {
         System.out.println(message + "\n");
